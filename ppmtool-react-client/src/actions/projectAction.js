@@ -1,12 +1,12 @@
 import axios from "axios";
-import { GET_ERRORS, GET_PROJECTS } from "./types";
+import { GET_ERRORS, GET_PROJECTS, GET_PROJECT } from "./types";
 
 export const createProject = (project, history) => async dispacth => {
     try {
         const res = await axios.post(
             "http://localhost:8080/api/project", project
-        )
-        history.push("/dashboard")
+        );
+        history.push("/dashboard");
     } catch (err) {
         dispacth({
             type: GET_ERRORS,
@@ -16,9 +16,17 @@ export const createProject = (project, history) => async dispacth => {
 };
 
 export const getProjects = () => async dispatch => {
-    const res = await axios.get("http://localhost:8080/api/project/all")
+    const res = await axios.get("http://localhost:8080/api/project/all");
     dispatch({
         type: GET_PROJECTS,
+        payload: res.data
+    });
+}
+
+export const getProject = (id, history) => async dispatch => {
+    const res = await axios.get(`http://localhost:8080/api/project/${id}`);
+    dispatch({
+        type: GET_PROJECT,
         payload: res.data
     });
 }
