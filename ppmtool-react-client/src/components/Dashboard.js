@@ -12,6 +12,7 @@ class Dashboard extends Component {
     }
 
     render() {
+        const { projects } = this.props.project;
         return (
             <div className="projects">
                 <div className="container">
@@ -21,8 +22,10 @@ class Dashboard extends Component {
                             <br />
                             <CreateProjectButton />
                             <br />
-                            <hr />
-                            <ProjectItem />
+                            <br />
+                            {projects.map(project => (
+                                <ProjectItem key={project.id} project={project} />
+                            ))}
                         </div>
                     </div>
                 </div>
