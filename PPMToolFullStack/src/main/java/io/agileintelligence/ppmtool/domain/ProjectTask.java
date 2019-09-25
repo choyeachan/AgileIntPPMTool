@@ -19,6 +19,9 @@ public class ProjectTask {
     private Integer priority;
     private Date dueDate;
     //ManyToOne with Backlog
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @JoinColumn(name="backlog_id",updatable = false, nullable = false)
+    private Backlog backlog;
 
     @Column(updatable = false)
     private String projectIdentifier;
@@ -116,6 +119,14 @@ public class ProjectTask {
     @PreUpdate
     protected  void onUpdate(){
         this.update_At = new Date();
+    }
+
+    public Backlog getBacklog() {
+        return backlog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
     }
 
     @Override
