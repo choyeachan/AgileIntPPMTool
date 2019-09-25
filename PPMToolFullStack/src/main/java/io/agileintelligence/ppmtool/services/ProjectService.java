@@ -34,6 +34,7 @@ public class ProjectService {
                 project.setBacklog(backlogRepository.findByProjectIdentifier(PROJECT_IDENTIFIER));
             }
             return projectRepository.save(project);
+
         }catch (Exception e){
             throw new ProjectIdException("Project ID '"+project.getProjectIdentifier().toUpperCase()+"' alerady exists");
         }
