@@ -1,9 +1,8 @@
 import {
     GET_BACKLOG,
     GET_PROJECT_TASK,
-    DELETE_PROEJCT_TASK
+    DELETE_PROJECT_TASK
 } from "../actions/types"
-import { stat } from "fs"
 
 const initialState = {
     project_tasks: [],
@@ -22,7 +21,7 @@ export default function (state = initialState, action) {
                 ...state,
                 project_task: action.paylaod
             }
-        case DELETE_PROEJCT_TASK:
+        case DELETE_PROJECT_TASK:
             return {
                 ...state
                 //TO_DO
