@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======> branch$1"
-# git branch branch$1
+git branch branch$1
 git checkout branch$1
 git add .
 git commit -m "branch$1 - $2"
