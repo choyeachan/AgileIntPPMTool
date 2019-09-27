@@ -22,15 +22,15 @@ public class Project {
     private String projectIdentifier;
    @NotBlank(message = "프로젝트 설명은 필수값입니다")
     private String description;
-   @JsonFormat(pattern = "yyyy-mm-dd")
+   @JsonFormat(pattern = "yyyy-MM-dd")
     private Date start_date;
-    @JsonFormat(pattern = "yyyy-mm-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date end_date;
 
-    @JsonFormat(pattern = "yyyy-mm-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(updatable = false)
     private Date created_At;
-    @JsonFormat(pattern = "yyyy-mm-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date updated_At;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "project")
