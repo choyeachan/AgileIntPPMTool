@@ -17,7 +17,7 @@ public class JWTLoginSuccessResponse {
         this.success = success;
     }
 
-    public String getTocken() {
+    public String getToken() {
         return token;
     }
 
